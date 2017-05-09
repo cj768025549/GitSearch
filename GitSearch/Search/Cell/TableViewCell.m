@@ -35,8 +35,12 @@
                                name:(NSString *)name
                            language:(NSString *)language {
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:urlString]];
-    self.nameLabel.text = name;
-    self.languageLabel.text = language;
+    self.nameLabel.text = [NSString stringWithFormat:@"%@%@",@"姓名:",name];
+    NSString *languageString = @"";
+    if (language.length) {
+        languageString = language;
+    }
+    self.languageLabel.text = [NSString stringWithFormat:@"%@%@",@"偏好语言:",languageString];
 }
 
 @end

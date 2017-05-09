@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>BlocksKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,22 +19,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-GitSearch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Reachability.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,12 +42,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E7AE9236D84CECDD1E971D76BBC196D</key>
+		<key>1CFE1943D6009CC498F1D0A024AB9073</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>40C2A874CD256DF8755AEC6CFE1BBB1B</key>
+		<key>29DD99664D189A7CA206368F493B1E0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,22 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>993873D0B5A72018C078B68756896F1F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9FAA6C8963F8F28F2CBDC2CDF602EB07</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F85601550E088E73D6F3E0963D4ED5A4</key>
+		<key>F64ABA4843582CA8B2E74CE38D596486</key>
 		<dict>
 			<key>primary</key>
 			<true/>

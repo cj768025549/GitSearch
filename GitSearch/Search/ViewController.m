@@ -79,18 +79,21 @@ static NSString *identifier = @"TableViewCell";
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         WEAKSELF();
         [RequestManager userInfoWithUserName:keyword success:^(BaseResponseModel *responseData) {
+            
             STRONGSELF();
             [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
             strongSelf.dataArray = responseData.items;
             [strongSelf.tableView reloadData];
             NSMutableArray *dataArray = [NSMutableArray arrayWithArray:responseData.items];
+            
             for (int i = 0; i < responseData.items.count; i ++) {
                 if (responseData.items.count > i) {
                     UserInfoModel *model = [responseData.items objectAtIndex:i];
+                    //异步处理语言
                     [strongSelf statisticsCommonLanguageWithUserInfoModel:model success:^(UserInfoModel *userInfo) {
                         [dataArray replaceObjectAtIndex:i withObject:userInfo];
                         strongSelf.dataArray = [NSArray arrayWithArray:dataArray];
-                        [strongSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathWithIndex:i]] withRowAnimation:UITableViewRowAnimationNone];
+                        [strongSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
                     } fail:^(NSError *error) {
                         [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
                     }];
@@ -110,11 +113,17 @@ static NSString *identifier = @"TableViewCell";
     [RequestManager userReponsWithUserName:model.userName success:^(NSArray *responseData) {
         NSMutableArray *languagesArray = [NSMutableArray array];
         NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
+        
         for (int i = 0; i < responseData.count; i ++) {
             NSDictionary *dict = [responseData objectAtIndex:i];
             NSString *language = [dict objectForKey:KLanguage];
-            [languagesArray addObject:language];
+            if (![language isKindOfClass:[NSNull class]]) {
+                if (language.length) {
+                    [languagesArray addObject:language];
+                }
+            }
         }
+        //筛选使用多的语言
         NSUInteger max = 0;
         NSSet *languageSet = [NSSet setWithArray:languagesArray];
         for (NSString *string in languageSet) {
@@ -122,15 +131,17 @@ static NSString *identifier = @"TableViewCell";
             NSArray * reslutFilteredArray = [languagesArray filteredArrayUsingPredicate:predicate];
             
             NSNumber *count = @((languagesArray.count-reslutFilteredArray.count));
-            //当前元素的个数
             if (count.integerValue > max) {
                 max = count.integerValue;
                 [userDict setObject:string forKey:KLanguage];
             }
         }
+        
         [userDict setObject:model.avatar_url forKey:KAvatar];
         [userDict setObject:model.userName forKey:KUserName];
+        
         UserInfoModel *userInfo = [UserInfoModel mj_objectWithKeyValues:userDict];
+        
         if (successBlock) {
             successBlock(userInfo);
         }

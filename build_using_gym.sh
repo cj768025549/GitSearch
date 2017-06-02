@@ -9,10 +9,10 @@ appName="GitSearch"
 #指定项目的scheme名称
 scheme=appName
 #指定要打包的配置名
-configuration="enterprise"
+configuration="Distribution"
 #指定打包所使用的输出方式，目前支持app-store, package, ad-hoc, enterprise, development, 和developer-id，即xcodebuild的method参数
 export_method='enterprise'
-#provisioning_profile='4c419047-9224-4cf7-a328-0248e3e93d8d.mobileprovision'
+provisioning_profile='4c419047-9224-4cf7-a328-0248e3e93d8d.mobileprovision'
 
 #指定项目地址
 workspace_path="$project_path/${appName}.xcworkspace"

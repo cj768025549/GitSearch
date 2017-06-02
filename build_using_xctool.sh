@@ -18,9 +18,7 @@ echo "${IPA_PATH}">> text.txt
 
 //下面2行是集成有Cocopods的用法
 echo "=================clean================="
-xcodebuild archive -workspace "${APP_NAME}.xcworkspace" -scheme "${APP_NAME}"  -configuration 'Release' clean
-echo "=================pod install================="
-pod install
+xcodebuild -workspace "${APP_NAME}.xcworkspace" -scheme "${APP_NAME}"  -configuration 'Release' clean
 echo "+++++++++++++++++build+++++++++++++++++"
 xcodebuild -workspace "${APP_NAME}.xcworkspace" -scheme "${APP_NAME}" -sdk iphoneos -configuration 'Release' CODE_SIGN_IDENTITY="${CODE_SIGN_DISTRIBUTION}" SYMROOT='$(PWD)'
 echo "+++++++++++++++++archive+++++++++++++++++"

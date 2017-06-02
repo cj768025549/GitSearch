@@ -24,7 +24,7 @@ xcodebuild -workspace "${APP_NAME}.xcworkspace" -scheme "${APP_NAME}" -sdk iphon
 echo "+++++++++++++++++archive+++++++++++++++++"
 xcodebuild -workspace ${APP_NAME}.xcworkspace -scheme "${APP_NAME}" -configuration Release -archivePath ./build/${FILENAME}/${FILENAME}.xcarchive archive
 echo "+++++++++++++++++导出IPA文件++++++++++++++++++"
-xcodebuild -exportArchive -archivePath ./build/${FILENAME}/${FILENAME}.xcarchive -exportPath ./build/${FILENAME}/${FILENAME}  -exportOptionsPlist ./build/export_info.plist
+xcodebuild -exportArchive -archivePath ./build/${FILENAME}/${FILENAME}.xcarchive -exportPath ./build/${FILENAME}/${FILENAME}  -exportOptionsPlist ./export_info.plist
 echo "+++++++++++++++++上传ipa至fir++++++++++++++++++"
 
 echo "正在上传到fir.im...."

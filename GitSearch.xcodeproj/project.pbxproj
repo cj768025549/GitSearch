@@ -279,7 +279,7 @@
 		};
 		D6FB0FF3ECFD5ECA8ED88AA2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -287,10 +287,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GitSearch/Pods-GitSearch-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -428,7 +427,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MIS.IM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7ca5c3ac-fb89-4d4c-b1ca-8ac0e2a908f1";
+				PROVISIONING_PROFILE = "4c419047-9224-4cf7-a328-0248e3e93d8d";
 				PROVISIONING_PROFILE_SPECIFIER = IM_Distribution;
 			};
 			name = Debug;
@@ -447,7 +446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MIS.IM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7ca5c3ac-fb89-4d4c-b1ca-8ac0e2a908f1";
+				PROVISIONING_PROFILE = "4c419047-9224-4cf7-a328-0248e3e93d8d";
 				PROVISIONING_PROFILE_SPECIFIER = IM_Distribution;
 			};
 			name = Release;

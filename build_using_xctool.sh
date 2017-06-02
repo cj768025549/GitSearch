@@ -3,9 +3,9 @@ APP_NAME="GitSearch"
 # 证书
 CODE_SIGN_DISTRIBUTION="iPhone Distribution: beijing Tongchengtong Information Technology Co., Ltd"
 # info.plist路径
-project_infoplist_path="./${APP_NAME}/Info.plist"
+#project_infoplist_path="./${APP_NAME}/Info.plist"
 #取版本号
-bundleShortVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleShortVersionString" "${project_infoplist_path}")
+#bundleShortVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleShortVersionString" "${project_infoplist_path}")
 #取build值
 #bundleVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleVersion" "${project_infoplist_path}")
 DATE="$(date +%Y%m%d%H%m%s)"

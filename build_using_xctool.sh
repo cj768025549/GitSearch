@@ -1,3 +1,4 @@
+security unlock-keychain -p 12 /Users/changjian/Library/keychains/login.keychain
 # 工程名
 APP_NAME="GitSearch"
 # 证书

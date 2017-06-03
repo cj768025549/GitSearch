@@ -419,8 +419,8 @@
 			baseConfigurationReference = C59CD18249C05F213BE901A9 /* Pods-GitSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 鸿运 张 (47NJ64W7VX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 鸿运 张 (47NJ64W7VX)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: beijing Tongchengtong Information Technology Co., Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: beijing Tongchengtong Information Technology Co., Ltd";
 				DEVELOPMENT_TEAM = 3636HA7ZQT;
 				GCC_PREFIX_HEADER = "$SRCROOT/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = GitSearch/Info.plist;
@@ -428,8 +428,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MIS.IM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e293d8b3-6c6b-421b-897a-9b508cebca9a";
-				PROVISIONING_PROFILE_SPECIFIER = IM_Development;
+				PROVISIONING_PROFILE = "2bb39949-c853-4f78-a4c5-106928265908";
+				PROVISIONING_PROFILE_SPECIFIER = IM_Distribution;
 			};
 			name = Debug;
 		};
@@ -438,8 +438,8 @@
 			baseConfigurationReference = 0C3D71254D2117E86D526720 /* Pods-GitSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 鸿运 张 (47NJ64W7VX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 鸿运 张 (47NJ64W7VX)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: beijing Tongchengtong Information Technology Co., Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: beijing Tongchengtong Information Technology Co., Ltd";
 				DEVELOPMENT_TEAM = 3636HA7ZQT;
 				GCC_PREFIX_HEADER = "$SRCROOT/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = GitSearch/Info.plist;
@@ -447,7 +447,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MIS.IM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e293d8b3-6c6b-421b-897a-9b508cebca9a";
+				PROVISIONING_PROFILE = "2bb39949-c853-4f78-a4c5-106928265908";
+				PROVISIONING_PROFILE_SPECIFIER = IM_Distribution;
 			};
 			name = Release;
 		};

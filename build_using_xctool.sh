@@ -9,13 +9,13 @@ basepath=$HOME
 
 
 cd $projectpath     #cd到工程目录下
-/usr/local/bin/pod install      # pod安装，要使用根路径
+#/usr/local/bin/pod install      # pod安装，要使用根路径
 
 #clean
 xcodebuild -workspace "$appname.xcworkspace" -scheme "$appname" -configuration "Release" clean >> /dev/null
 #build
 archivePath="$projectpath/$appname.xcarchive"
-xcodebuild archive -workspace "$appname.xcworkspace" -scheme "$appname" -sdk iphoneos -configuration "Release_Test" -archivePath $archivePath CODE_SIGN_IDENTITY="$codesignidentity" PROVISIONING_PROFILE="$provisoningprofile" >> /dev/null
+xcodebuild archive -workspace "$appname.xcworkspace" -scheme "$appname" -sdk iphoneos -configuration "Release" -archivePath $archivePath CODE_SIGN_IDENTITY="$codesignidentity" PROVISIONING_PROFILE="$provisoningprofile" >> /dev/null
 
 
 #获取ipa文件存放的路径

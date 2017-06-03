@@ -33,12 +33,9 @@ ipanameprefix="$appname_test_$bundleversion"
 ipapath="$packagepath/$ipanameprefix"
 
 
-optionsPlist="$projectpath/EnterpriseExportOptions.plist"
+optionsPlist="$projectpath/export_info.plist"
 xcodebuild -exportArchive -archivePath $archivePath -exportPath $ipapath -exportOptionsPlist $optionsPlist CODE_SIGN_IDENTITY="$codesignidentity" PROVISIONING_PROFILE="$provisoningprofile" >> /dev/null
 
 
 cd $packagepath
-git pull<span style="white-space:pre">              </span># git更新
-rm -rf *.ipa || true<span style="white-space:pre">  </span># 删除旧的ipa文件
-mv $ipapath/$appname.ipa $ipanameprefix.ipa<span style="white-space:pre">   </span># 按命名格式将文件重命名
-rm -rf $ipapath<span style="white-space:pre">           </span># 删除空目录
+open .

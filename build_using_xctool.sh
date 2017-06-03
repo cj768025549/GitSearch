@@ -2,7 +2,7 @@
 APP_NAME="GitSearch"
 # 证书
 CODE_SIGN_DISTRIBUTION="iPhone Distribution: beijing Tongchengtong Information Technology Co., Ltd"
-provisoningprofile="2bb39949-c853-4f78-a4c5-106928265908"
+provisoningprofile="IM_Distribution.mobileprovision"
 
 # info.plist路径
 project_infoplist_path="./${APP_NAME}/Info.plist"

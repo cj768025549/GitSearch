@@ -10,5 +10,7 @@
 	<string>enterprise</string>
 	<key>compileBitcode</key>
 	<false/>
+	<key>teamID</key>
+	<string>3636HA7ZQT</string>
 </dict>
 </plist>

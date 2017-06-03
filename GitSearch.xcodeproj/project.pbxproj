@@ -448,7 +448,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MIS.IM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e293d8b3-6c6b-421b-897a-9b508cebca9a";
-				PROVISIONING_PROFILE_SPECIFIER = IM_Development;
 			};
 			name = Release;
 		};

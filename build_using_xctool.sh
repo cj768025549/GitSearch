@@ -1,40 +1,44 @@
-# 工程名
-APP_NAME="GitSearch"
-# 证书
-CODE_SIGN_DISTRIBUTION="iPhone Distribution: beijing Tongchengtong Information Technology Co., Ltd"
-# info.plist路径
-project_infoplist_path="./${APP_NAME}/Info.plist"
-#取版本号
-bundleShortVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleShortVersionString" "${project_infoplist_path}")
-#取build值
-bundleVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleVersion" "${project_infoplist_path}")
-DATE="$(date +%Y%m%d)"
-FILENAME="${APP_NAME}_V${bundleShortVersion}_${DATE}"
-IPANAME="${APP_NAME}.ipa"
-#要上传的ipa文件路径
-IPA_PATH="$HOME/${IPANAME}"
-echo ${IPA_PATH}
-echo "${IPA_PATH}">> text.txt
+export LANG=en_US.UTF-8     #   执行pod install时用到
+security unlock-keychain "-p" "12"   # MAC授权密码
+appname="GitSearch"
+codesignidentify="iPhone Distribution: beijing Tongchengtong Information Technology Co., Ltd"   # 需要指定证书
+provisoningprofile="4c419047-9224-4cf7-a328-0248e3e93d8d"
 
-//下面2行是集成有Cocopods的用法
-echo "=================clean================="
-xcodebuild archive -workspace "${APP_NAME}.xcworkspace" -scheme "${APP_NAME}"  -configuration 'Release' clean
-echo "=================pod install================="
-pod install
-echo "+++++++++++++++++build+++++++++++++++++"
-xcodebuild -workspace "${APP_NAME}.xcworkspace" -scheme "${APP_NAME}" -sdk iphoneos -configuration 'Release' CODE_SIGN_IDENTITY="${CODE_SIGN_DISTRIBUTION}" SYMROOT='$(PWD)'
-echo "+++++++++++++++++archive+++++++++++++++++"
-xcodebuild -workspace ${APP_NAME}.xcworkspace -scheme "${APP_NAME}" -configuration Release -archivePath ./build/${FILENAME}.xcarchive archive
-echo "+++++++++++++++++导出IPA文件++++++++++++++++++"
-xcodebuild -exportArchive -archivePath ./build/${FILENAME}.xcarchive -exportPath ./build/${FILENAME}  -exportOptionsPlist ./build/export_info.plist
-echo "+++++++++++++++++上传ipa至fir++++++++++++++++++"
+projectpath=$(pwd)
+basepath=$HOME
 
-echo "正在上传到fir.im...."
-fir p ./build/${FILENAME}/${APP_NAME}.ipa
-changelog=`cat $projectDir/README`
-curl -X PUT --data "changelog=$changelog" http://fir.im/api/v2/app/59313172548b7a16a9000264?token=863efefc2c22d4b761c096e6af9a6024
-echo "\n打包上传更新结束"
-#fir无法使用时，上传至蒲公英
 
-#fastlane gym --export_method enterprise --output_name ${APP_NAME}
-#curl -F "file=./build/${FILENAME}/${APP_NAME}.ipa" -F "uKey=d81326899dd50c3382e2f5e99f3a7495" -F "_api_key=495642f9b1336a64ceb2d5cb44d93183" https://qiniu-storage.pgyer.com/apiv1/app/upload
+#git更新并删除老的ipa文件
+packagepath="$basepath/app-package/production"
+cd $packagepath
+git pull
+git rm *.ipa || true    # ‘|| true’保证继续执行下一步
+
+
+cd $projectpath     #cd到工程目录下
+/usr/local/bin/pod install      # pod安装，要使用根路径
+
+#clean
+xcodebuild -workspace "$appname.xcworkspace" -scheme "$appname" -configuration "Release" clean >> /dev/null
+#build
+archivePath="$projectpath/$appname.xcarchive"
+xcodebuild archive -workspace "$appname.xcworkspace" -scheme "$appname" -sdk iphoneos -configuration "Release_Test" -archivePath $archivePath CODE_SIGN_IDENTITY="$codesignidentity" PROVISIONING_PROFILE="$provisoningprofile" >> /dev/null
+
+
+#获取ipa文件存放的路径
+packagepath="$basepath/hidate-app-package/test"
+#获取版本号
+bundleversion=$(/usr/libexec/PlistBuddy -c "print :CFBundleShortVersionString" "$projectpath/$appname/Info.plist")
+ipanameprefix="$appname_test_$bundleversion"
+ipapath="$packagepath/$ipanameprefix"
+
+
+optionsPlist="$projectpath/EnterpriseExportOptions.plist"
+xcodebuild -exportArchive -archivePath $archivePath -exportPath $ipapath -exportOptionsPlist $optionsPlist CODE_SIGN_IDENTITY="$codesignidentity" PROVISIONING_PROFILE="$provisoningprofile" >> /dev/null
+
+
+cd $packagepath
+git pull<span style="white-space:pre">              </span># git更新
+rm -rf *.ipa || true<span style="white-space:pre">  </span># 删除旧的ipa文件
+mv $ipapath/$appname.ipa $ipanameprefix.ipa<span style="white-space:pre">   </span># 按命名格式将文件重命名
+rm -rf $ipapath<span style="white-space:pre">           </span># 删除空目录

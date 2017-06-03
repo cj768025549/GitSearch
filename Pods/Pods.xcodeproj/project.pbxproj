@@ -1330,7 +1330,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A09D141086CBB5572E3F79DEA26AA184 /* Pods-GitSearch.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -1553,7 +1553,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C0B768A41D3A9261BC687FC0BDEA14AC /* Pods-GitSearch.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;

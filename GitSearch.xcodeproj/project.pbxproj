@@ -447,7 +447,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MIS.IM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4c419047-9224-4cf7-a328-0248e3e93d8d";
+				PROVISIONING_PROFILE = "e293d8b3-6c6b-421b-897a-9b508cebca9a";
 				PROVISIONING_PROFILE_SPECIFIER = IM_Distribution;
 			};
 			name = Release;

@@ -13,7 +13,7 @@ scheme="GitSearch"
 #指定要打包的配置名
 configuration="enterprise"
 #指定打包所使用的provisioning profile名称
-provisioning_profile='IM_Distribution'
+provisioning_profile='IM_Development'
 
 #指定项目地址
 workspace_path="$project_path/GitSearch.xcworkspace"

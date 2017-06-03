@@ -25,8 +25,9 @@ pod install
 echo "=================clean================="
 xcodebuild -workspace ${APP_NAME}.xcworkspace -scheme ${APP_NAME}  -configuration 'Release' clean
 
+
 echo "+++++++++++++++++build+++++++++++++++++"
-xcodebuild archive -workspace ${APP_NAME}.xcworkspace -scheme ${APP_NAME} -sdk iphoneos -configuration 'Release' -archivePath ./build/${FILENAME}/${APP_NAME}.xcarchive CODE_SIGN_IDENTITY="$CODE_SIGN_DISTRIBUTION" PROVISIONING_PROFILE="$provisoningprofile" SYMROOT='$(PWD)'
+xcodebuild archive -workspace ${APP_NAME}.xcworkspace -scheme ${APP_NAME} -sdk iphoneos -configuration 'Release' -archivePath ./build/${FILENAME}/${APP_NAME}.xcarchive CODE_SIGN_IDENTITY="CODE_SIGN_DISTRIBUTION" PROVISIONING_PROFILE="provisoningprofile" SYMROOT='$(PWD)'
 echo "+++++++++++++++++archive+++++++++++++++++"
 #xcodebuild archive -workspace ${APP_NAME}.xcworkspace -scheme ${APP_NAME} -configuration 'Release' -archivePath ./build/${FILENAME}/${APP_NAME}.xcarchive CODE_SIGN_IDENTITY="$CODE_SIGN_DISTRIBUTION" PROVISIONING_PROFILE="$provisoningprofile"
 echo "+++++++++++++++++导出IPA文件++++++++++++++++++"

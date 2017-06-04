@@ -13,6 +13,7 @@ bundleShortVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleShortVersionStrin
 bundleVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleVersion" "${project_infoplist_path}")
 DATE="$(date +%Y%m%d%H%m)"
 FILENAME="${DATE}"
+FIRTOKEN = "863efefc2c22d4b761c096e6af9a6024"
 #IPANAME="${APP_NAME}.ipa"
 #要上传的ipa文件路径
 #IPA_PATH="$HOME/Desktop/${IPANAME}"
@@ -37,9 +38,11 @@ xcodebuild -exportArchive -archivePath "./build/${FILENAME}/${APP_NAME}.xcarchiv
 echo "+++++++++++++++++上传ipa至fir++++++++++++++++++"
 
 echo "正在上传到fir.im...."
-fir p ./build/${FILENAME}/${APP_NAME}.ipa
+#fir login ${FIRTOKEN}
+fir p "./build/${FILENAME}/${APP_NAME}.ipa"
 changelog=`cat $projectDir/README`
-curl -X PUT --data "changelog=$changelog" http://fir.im/api/v2/app/59313172548b7a16a9000264?token=863efefc2c22d4b761c096e6af9a6024
+
+curl -X PUT --data "changelog=$changelog" http://fir.im/api/v2/app/59313172548b7a16a9000264?token=${FIRTOKEN}
 echo "\n打包上传更新结束"
 #fir无法使用时，上传至蒲公英
 

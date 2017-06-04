@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ security unlock-keychain -p 12
 #设置超时
 export FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT=120
 
@@ -14,7 +14,7 @@ now=$(date +"%Y_%m_%d_%H_%M_%S")
 #指定项目的scheme名称
 scheme="GitSearch"
 #指定要打包的配置名
-configuration="enterprise"
+configuration="Release"
 #指定打包所使用的输出方式，目前支持app-store, package, ad-hoc, enterprise, development, 和developer-id，即xcodebuild的method参数
 export_method='enterprise'
 

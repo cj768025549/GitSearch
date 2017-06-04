@@ -41,11 +41,11 @@ echo "+++++++++++++++++上传ipa至fir++++++++++++++++++"
 
 echo "正在上传到fir.im...."
 #fir login ${FIRTOKEN}
-fir p "./build/${FILENAME}/${APP_NAME}.ipa"
-changelog=`cat $projectDir/README`
-
-curl -X PUT --data "changelog=$changelog" http://fir.im/api/v2/app/${FIRAPPID}?token=${FIRTOKEN}
-echo "\n打包上传更新结束"
+fir publish ./build/${FILENAME}/${APP_NAME}.ipa
+#changelog=`cat $projectDir/README`
+#
+#curl -X PUT --data "changelog=$changelog" http://fir.im/api/v2/app/${FIRAPPID}?token=${FIRTOKEN}
+#echo "\n打包上传更新结束"
 
 open .
 #fir无法使用时，上传至蒲公英

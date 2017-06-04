@@ -41,15 +41,13 @@ echo "+++++++++++++++++上传ipa至fir++++++++++++++++++"
 
 echo "正在上传到fir.im...."
 #fir login ${FIRTOKEN}
-fir login ${FIRTOKEN}
-fir publish ./build/${FILENAME}/${APP_NAME}.ipa
+#fir publish ./build/${FILENAME}/${APP_NAME}.ipa
 #changelog=`cat $projectDir/README`
 #
-curl -X PUT http://fir.im/api/v2/app/${FIRAPPID}?token=${FIRTOKEN}
+#curl -X PUT http://fir.im/api/v2/app/${FIRAPPID}?token=${FIRTOKEN}
 #echo "\n打包上传更新结束"
 
 open .
 #fir无法使用时，上传至蒲公英
 
-#fastlane gym --export_method enterprise --output_name ${APP_NAME}
-#curl -F "file=./build/${FILENAME}/${APP_NAME}.ipa" -F "uKey=d81326899dd50c3382e2f5e99f3a7495" -F "_api_key=495642f9b1336a64ceb2d5cb44d93183" https://qiniu-storage.pgyer.com/apiv1/app/upload
+curl -F "file=./build/${FILENAME}/${APP_NAME}.ipa" -F "uKey=d81326899dd50c3382e2f5e99f3a7495" -F "_api_key=495642f9b1336a64ceb2d5cb44d93183" https://qiniu-storage.pgyer.com/apiv1/app/upload

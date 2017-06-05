@@ -40,6 +40,7 @@ xcodebuild -exportArchive -archivePath "./build/${FILENAME}/${APP_NAME}.xcarchiv
 echo "+++++++++++++++++上传ipa至fir++++++++++++++++++"
 
 echo "正在上传到fir.im...."
+fir p ./build/${FILENAME}/${APP_NAME}.ipa -T ${FIRTOKEN} -Q
 #fir login ${FIRTOKEN}
 #fir publish ./build/${FILENAME}/${APP_NAME}.ipa
 #changelog=`cat $projectDir/README`
@@ -50,4 +51,4 @@ echo "正在上传到fir.im...."
 open .
 #fir无法使用时，上传至蒲公英
 
-curl -F "file=./build/${FILENAME}/${APP_NAME}.ipa" -F "uKey=d81326899dd50c3382e2f5e99f3a7495" -F "_api_key=495642f9b1336a64ceb2d5cb44d93183" https://qiniu-storage.pgyer.com/apiv1/app/upload
+#curl -F "file=./build/${FILENAME}/${APP_NAME}.ipa" -F "uKey=d81326899dd50c3382e2f5e99f3a7495" -F "_api_key=495642f9b1336a64ceb2d5cb44d93183" https://qiniu-storage.pgyer.com/apiv1/app/upload

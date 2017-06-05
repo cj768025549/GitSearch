@@ -40,12 +40,13 @@ xcodebuild -exportArchive -archivePath "./build/${FILENAME}/${APP_NAME}.xcarchiv
 echo "+++++++++++++++++上传ipa至fir++++++++++++++++++"
 
 echo "正在上传到fir.im...."
-fir publish "./build/${FILENAME}/${APP_NAME}.ipa" -T "${FIRTOKEN}" -Q
+#fir publish "./build/${FILENAME}/${APP_NAME}.ipa" -T "${FIRTOKEN}" -Q
 #fir login ${FIRTOKEN}
-#fir publish ./build/${FILENAME}/${APP_NAME}.ipa
-#changelog=`cat $projectDir/README`
-#
-#curl -X PUT http://fir.im/api/v2/app/${FIRAPPID}?token=${FIRTOKEN}
+echo ./build/${FILENAME}/${APP_NAME}.ipa
+fir publish ./build/${FILENAME}/${APP_NAME}.ipa
+changelog=`cat $projectDir/README`
+
+curl -X PUT  --data "changelog=$changelog" http://fir.im/api/v2/app/5933aa88548b7a57ff000059?token=863efefc2c22d4b761c096e6af9a6024
 #echo "\n打包上传更新结束"
 
 open .

@@ -40,7 +40,7 @@ xcodebuild -exportArchive -archivePath "./build/${FILENAME}/${APP_NAME}.xcarchiv
 echo "+++++++++++++++++上传ipa至fir++++++++++++++++++"
 
 echo "正在上传到fir.im...."
-fir p ./build/${FILENAME}/${APP_NAME}.ipa -T ${FIRTOKEN} -Q
+fir p "./build/${FILENAME}/${APP_NAME}.ipa" -T "${FIRTOKEN}" 
 #fir login ${FIRTOKEN}
 #fir publish ./build/${FILENAME}/${APP_NAME}.ipa
 #changelog=`cat $projectDir/README`

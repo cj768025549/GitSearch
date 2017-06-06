@@ -33,7 +33,7 @@ echo "+++++++++++++++++复制到桌面++++++++++++++++++"
 mkdir ${HOME}/Desktop/Package
 cp -R ./build/${FILENAME}/${APP_NAME}.ipa ${HOME}/Desktop/Package
 
-#fir p "./build/${FILENAME}/${APP_NAME}.ipa" -T "${FIRTOKEN}" -Q
+fir p "./build/${FILENAME}/${APP_NAME}.ipa" -T "${FIRTOKEN}" -Q
 #fir login ${FIRTOKEN}
 #echo ./build/${FILENAME}/${APP_NAME}.ipa
 #fir publish ./build/${FILENAME}/${APP_NAME}.ipa
